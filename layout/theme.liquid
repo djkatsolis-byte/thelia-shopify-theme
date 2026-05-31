@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{{ page_title }}{% if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif %}{% if current_page != 1 %} &ndash; Page {{ current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}</title>
+    {{ content_for_header }}
+    {{ 'base.css' | asset_url | stylesheet_tag }}
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="{{ routes.root_url }}">THELIA</a>
+      <nav class="nav">
+        <a href="{{ routes.root_url }}">Home</a>
+        <a href="{{ routes.all_products_collection_url }}">Shop</a>
+        <a href="/pages/our-story">Story</a>
+      </nav>
+    </header>
+
+    <main id="MainContent" role="main">
+      {{ content_for_layout }}
+    </main>
+
+    <footer class="site-footer">
+      <p>THELIA · Premium Extra Virgin Olive Oil · Ancient Olympia Heritage</p>
+    </footer>
+  </body>
+</html>
